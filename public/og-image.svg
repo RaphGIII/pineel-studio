@@ -1,0 +1,12 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#08090B"/>
+  <circle cx="930" cy="120" r="280" fill="#D8C690" fill-opacity="0.16"/>
+  <circle cx="420" cy="-40" r="260" fill="white" fill-opacity="0.08"/>
+  <rect x="90" y="92" width="1020" height="446" rx="40" fill="white" fill-opacity="0.045" stroke="white" stroke-opacity="0.12"/>
+  <rect x="140" y="142" width="62" height="62" rx="19" fill="white" fill-opacity="0.1" stroke="white" stroke-opacity="0.14"/>
+  <text x="162" y="183" fill="white" font-size="36" font-weight="800" font-family="Inter, Arial">P</text>
+  <text x="224" y="181" fill="white" fill-opacity="0.78" font-size="24" font-weight="800" letter-spacing="8" font-family="Inter, Arial">PINEEL STUDIOS</text>
+  <text x="140" y="300" fill="white" font-size="76" font-weight="900" letter-spacing="-5" font-family="Inter, Arial">Modern websites</text>
+  <text x="140" y="382" fill="white" font-size="76" font-weight="900" letter-spacing="-5" font-family="Inter, Arial">with atmosphere.</text>
+  <text x="145" y="452" fill="#D8C690" font-size="26" font-weight="700" letter-spacing="6" font-family="Inter, Arial">PINEELSTUDIOS.COM</text>
+</svg>

@@ -8,36 +8,44 @@ import {
   Layers,
   Mail,
   ExternalLink,
-  CheckCircle2
+  CheckCircle2,
+  ShoppingBag,
+  Plane,
+  Crown,
+  Palette,
+  MousePointerClick
 } from "lucide-react";
 
 const projects = [
   {
-    title: "Aero Club Concept",
-    category: "Aviation Club Redesign",
+    title: "L'Étoile Couture",
+    category: "Fashion E-Commerce",
     description:
-      "A cinematic website concept for a regional aviation club with a stronger focus on emotion, membership and discovery flights.",
-    image:
-      "https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&w=1600&q=80",
-    tags: ["Aviation", "Club", "Landing Page"]
+      "A modern streetwear brand presence with product-focused storytelling, clean shopping paths and a stronger premium visual direction.",
+    tags: ["Fashion", "Shopify", "Brand"],
+    href: "https://www.letoilecouture.com",
+    action: "Open live site",
+    visual: "fashion"
+  },
+  {
+    title: "Aviation Club Concept",
+    category: "Club Redesign",
+    description:
+      "A cinematic web concept for aviation clubs, focused on discovery flights, membership, training and a more emotional first impression.",
+    tags: ["Aviation", "Club", "Landing Page"],
+    href: "mailto:hello@pineelstudios.com?subject=Aviation%20website%20concept",
+    action: "Request concept",
+    visual: "aviation"
   },
   {
     title: "Chess Club Experience",
     category: "Local Club Website",
     description:
-      "A refined 3D-inspired chess club interface designed to make tradition, tournaments and community feel contemporary.",
-    image:
-      "https://images.unsplash.com/photo-1529699211952-734e80c4d42b?auto=format&fit=crop&w=1600&q=80",
-    tags: ["Chess", "Community", "3D Visual"]
-  },
-  {
-    title: "Airfield Restaurant",
-    category: "Hospitality & Club Concept",
-    description:
-      "A warm, atmospheric layout combining club information with a restaurant section for visitors, pilots and local guests.",
-    image:
-      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=80",
-    tags: ["Restaurant", "Experience", "Local Business"]
+      "A refined chess club interface designed to make tradition, tournaments, youth work and community feel contemporary.",
+    tags: ["Chess", "Community", "3D Feel"],
+    href: "mailto:hello@pineelstudios.com?subject=Chess%20club%20website%20concept",
+    action: "Request concept",
+    visual: "chess"
   }
 ];
 
@@ -46,28 +54,105 @@ const services = [
     icon: MonitorSmartphone,
     title: "Modern Websites",
     text:
-      "Clean, responsive websites that look professional on desktop and mobile devices."
+      "Responsive websites that feel serious, polished and trustworthy on desktop and mobile devices."
   },
   {
     icon: Sparkles,
     title: "Visual Redesigns",
     text:
-      "Existing websites are transformed into elegant, structured and more trustworthy digital experiences."
+      "Existing pages are transformed into cleaner, more atmospheric and more conversion-oriented experiences."
   },
   {
     icon: Layers,
     title: "Digital Presence",
     text:
-      "From first impression to contact button: every section is designed to help visitors understand and act quickly."
+      "From the first impression to the contact button, every section is structured to help visitors understand and act."
   }
 ];
 
 const process = [
-  "Analyse the existing online presence",
-  "Create a clear visual redesign concept",
-  "Build a responsive website structure",
-  "Prepare the page for real visitors and enquiries"
+  "Analyse the current website, target group and first impression",
+  "Create a clear redesign concept with stronger visual hierarchy",
+  "Build the responsive website and refine the interaction details",
+  "Prepare launch, domain connection and future content updates"
 ];
+
+const stats = [
+  ["3+", "Concept styles"],
+  ["100%", "Responsive"],
+  ["24h", "Fast first draft"]
+];
+
+function SectionReveal({
+  children,
+  className = ""
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <motion.section
+      initial={{ opacity: 0, y: 28 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-120px" }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+      className={className}
+    >
+      {children}
+    </motion.section>
+  );
+}
+
+function ProjectVisual({ type }: { type: string }) {
+  return (
+    <div className={`project-visual ${type}`} aria-hidden="true">
+      <div className="visual-glow" />
+      {type === "fashion" && (
+        <>
+          <div className="fashion-orb orb-one" />
+          <div className="fashion-orb orb-two" />
+          <div className="fashion-card card-one">
+            <ShoppingBag size={22} />
+            <span>NEW DROP</span>
+          </div>
+          <div className="fashion-card card-two">
+            <span>HIGH NOON</span>
+            <strong>Editorial commerce</strong>
+          </div>
+          <div className="product-frame">
+            <div className="shirt-shape" />
+          </div>
+        </>
+      )}
+
+      {type === "aviation" && (
+        <>
+          <Plane className="plane-line" size={88} />
+          <div className="runway" />
+          <div className="cloud cloud-one" />
+          <div className="cloud cloud-two" />
+          <div className="coordinate-card">
+            <span>DISCOVERY FLIGHT</span>
+            <strong>Book the experience</strong>
+          </div>
+        </>
+      )}
+
+      {type === "chess" && (
+        <>
+          <Crown className="chess-crown" size={74} />
+          <div className="board-grid" />
+          <div className="piece piece-one" />
+          <div className="piece piece-two" />
+          <div className="match-card">
+            <span>NEXT GAME NIGHT</span>
+            <strong>Friday · 19:30</strong>
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
 
 export default function Home() {
   return (
@@ -75,12 +160,13 @@ export default function Home() {
       <div className="background-glow" aria-hidden="true">
         <div className="glow glow-one" />
         <div className="glow glow-two" />
+        <div className="noise-layer" />
       </div>
 
       <header className="header">
-        <a href="#" className="brand" aria-label="Pineel Studio home">
+        <a href="#" className="brand" aria-label="Pineel Studios home">
           <span className="brand-mark">P</span>
-          <span className="brand-name">PINEEL STUDIO</span>
+          <span className="brand-name">PINEEL STUDIOS</span>
         </a>
 
         <nav className="nav" aria-label="Main navigation">
@@ -90,7 +176,7 @@ export default function Home() {
           <a href="#contact">Contact</a>
         </nav>
 
-        <a href="mailto:hello@pineelstudios.com" className="nav-button">
+        <a href="#contact" className="nav-button">
           Let&apos;s talk
         </a>
       </header>
@@ -100,17 +186,19 @@ export default function Home() {
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.85, ease: "easeOut" }}
           >
             <div className="eyebrow">
               <span />
               Modern web design for clubs, brands and local businesses
             </div>
 
-            <h1>Digital presence with clarity, atmosphere and intent.</h1>
+            <h1>
+              Digital presence with clarity, atmosphere and intent.
+            </h1>
 
             <p className="hero-copy">
-              Pineel Studio creates refined websites and redesign concepts for
+              Pineel Studios creates refined websites and redesign concepts for
               local businesses, clubs and small brands that want to look more
               professional online.
             </p>
@@ -120,9 +208,18 @@ export default function Home() {
                 View selected work
                 <ArrowRight size={18} />
               </a>
-              <a href="mailto:hello@pineelstudios.com" className="secondary-button">
-                Contact Pineel Studio
+              <a href="#contact" className="secondary-button">
+                Contact Pineel Studios
               </a>
+            </div>
+
+            <div className="hero-stats" aria-label="Studio highlights">
+              {stats.map(([value, label]) => (
+                <div key={label}>
+                  <strong>{value}</strong>
+                  <span>{label}</span>
+                </div>
+              ))}
             </div>
           </motion.div>
 
@@ -140,21 +237,52 @@ export default function Home() {
                   <span />
                   <span />
                 </div>
-                <div className="browser-content">
-                  <div className="preview-image">
-                    <img
-                      src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1f?auto=format&fit=crop&w=1600&q=80"
-                      alt="Modern website preview"
-                    />
-                    <div className="preview-overlay" />
-                    <div className="preview-text">
-                      <p>Website Concept</p>
-                      <h2>A more memorable first impression.</h2>
-                      <div className="preview-tags">
-                        <span>Responsive</span>
-                        <span>Modern UI</span>
-                        <span>Clear CTA</span>
-                      </div>
+
+                <div className="studio-preview">
+                  <div className="preview-aurora" />
+                  <div className="mini-nav">
+                    <span>PINEEL</span>
+                    <div />
+                  </div>
+
+                  <motion.div
+                    className="floating-card floating-main"
+                    animate={{ y: [0, -9, 0] }}
+                    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                  >
+                    <Palette size={20} />
+                    <span>Visual redesign</span>
+                  </motion.div>
+
+                  <motion.div
+                    className="floating-card floating-side"
+                    animate={{ y: [0, 10, 0] }}
+                    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                  >
+                    <MousePointerClick size={18} />
+                    <span>Clear CTA</span>
+                  </motion.div>
+
+                  <div className="preview-copy">
+                    <p>Website Concept</p>
+                    <h2>A more memorable first impression.</h2>
+                    <div className="preview-tags">
+                      <span>Responsive</span>
+                      <span>Modern UI</span>
+                      <span>Conversion ready</span>
+                    </div>
+                  </div>
+
+                  <div className="mock-layout">
+                    <div className="mock-hero" />
+                    <div className="mock-row">
+                      <span />
+                      <span />
+                      <span />
+                    </div>
+                    <div className="mock-grid">
+                      <span />
+                      <span />
                     </div>
                   </div>
                 </div>
@@ -164,15 +292,25 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="work" className="section">
+      <SectionReveal className="section logos-section">
+        <div className="logo-strip">
+          <span>Selected directions</span>
+          <span>Aviation clubs</span>
+          <span>Fashion brands</span>
+          <span>Local associations</span>
+          <span>Hospitality</span>
+        </div>
+      </SectionReveal>
+
+      <SectionReveal id="work" className="section">
         <div className="section-heading split">
           <div>
             <p className="kicker">Selected Work</p>
             <h2>Concepts designed to feel credible from the first second.</h2>
           </div>
           <p>
-            Early portfolio concepts focused on clubs, aviation, hospitality and
-            local businesses.
+            Portfolio directions focused on visual clarity, stronger first
+            impressions and real conversion paths.
           </p>
         </div>
 
@@ -180,36 +318,45 @@ export default function Home() {
           {projects.map((project, index) => (
             <motion.article
               key={project.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 22 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: index * 0.08 }}
+              transition={{ duration: 0.62, delay: index * 0.08 }}
               className="project-card"
             >
-              <div className="project-image">
-                <img src={project.image} alt={project.title} />
-                <div className="project-gradient" />
-                <div className="tag-row">
-                  {project.tags.map((tag) => (
-                    <span key={tag}>{tag}</span>
-                  ))}
-                </div>
-              </div>
+              <ProjectVisual type={project.visual} />
+
               <div className="project-body">
                 <p>{project.category}</p>
                 <h3>{project.title}</h3>
                 <span>{project.description}</span>
+
+                <div className="tag-row">
+                  {project.tags.map((tag) => (
+                    <em key={tag}>{tag}</em>
+                  ))}
+                </div>
+
+                <a
+                  href={project.href}
+                  target={project.href.startsWith("http") ? "_blank" : undefined}
+                  rel={project.href.startsWith("http") ? "noreferrer" : undefined}
+                  className="project-link"
+                >
+                  {project.action}
+                  <ExternalLink size={16} />
+                </a>
               </div>
             </motion.article>
           ))}
         </div>
-      </section>
+      </SectionReveal>
 
-      <section id="services" className="section">
+      <SectionReveal id="services" className="section">
         <div className="services-grid">
           <div className="section-heading">
             <p className="kicker">Services</p>
-            <h2>What Pineel Studio helps with.</h2>
+            <h2>What Pineel Studios helps with.</h2>
           </div>
 
           <div className="service-list">
@@ -227,9 +374,9 @@ export default function Home() {
             })}
           </div>
         </div>
-      </section>
+      </SectionReveal>
 
-      <section id="process" className="section">
+      <SectionReveal id="process" className="section">
         <div className="process-card">
           <div className="process-text">
             <p className="kicker">Process</p>
@@ -253,15 +400,15 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </SectionReveal>
 
-      <section id="contact" className="section contact-section">
+      <SectionReveal id="contact" className="section contact-section">
         <div className="contact-card">
           <p className="kicker">Contact</p>
           <h2>A better website can start with one clear idea.</h2>
           <p>
             For website concepts, redesigns or a modern online presence for your
-            club, business or brand, contact Pineel Studio directly.
+            club, business or brand, contact Pineel Studios directly.
           </p>
           <div className="contact-actions">
             <a href="mailto:hello@pineelstudios.com" className="primary-button">
@@ -270,7 +417,7 @@ export default function Home() {
               <ArrowRight size={18} />
             </a>
             <a
-              href="https://pineelstudios.com"
+              href="https://www.pineelstudios.com"
               target="_blank"
               rel="noreferrer"
               className="secondary-button"
@@ -280,10 +427,10 @@ export default function Home() {
             </a>
           </div>
         </div>
-      </section>
+      </SectionReveal>
 
       <footer className="footer">
-        <p>© {new Date().getFullYear()} Pineel Studio. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} Pineel Studios. All rights reserved.</p>
         <p>Modern websites & digital presence.</p>
       </footer>
     </main>
