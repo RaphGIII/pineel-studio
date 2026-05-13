@@ -472,7 +472,7 @@ export default function Home() {
 
   <div className="footer-column">
     <h4>Contact</h4>
-    <a href="mailto:hello@pineelstudios.com">hello@pineelstudios.com</a>
+    <a href="mailto:raphael@pineelstudios.com">raphael@pineelstudios.com</a>
     <a href="https://www.pineelstudios.com">pineelstudios.com</a>
   </div>
 
