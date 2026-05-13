@@ -33,7 +33,7 @@ const projects = [
     description:
       "A cinematic web concept for aviation clubs, focused on discovery flights, membership, training and a more emotional first impression.",
     tags: ["Aviation", "Club", "Landing Page"],
-    href: "mailto:hello@pineelstudios.com?subject=Aviation%20website%20concept",
+    href: "mailto:raphael@pineelstudios.com?subject=Aviation%20website%20concept",
     action: "Request concept",
     visual: "aviation"
   },
@@ -43,7 +43,7 @@ const projects = [
     description:
       "A refined chess club interface designed to make tradition, tournaments, youth work and community feel contemporary.",
     tags: ["Chess", "Community", "3D Feel"],
-    href: "mailto:hello@pineelstudios.com?subject=Chess%20club%20website%20concept",
+    href: "mailto:raphael@pineelstudios.com?subject=Chess%20club%20website%20concept",
     action: "Request concept",
     visual: "chess"
   }
@@ -85,13 +85,16 @@ const stats = [
 
 function SectionReveal({
   children,
-  className = ""
+  className = "",
+  id
 }: {
   children: React.ReactNode;
   className?: string;
+  id?: string;
 }) {
   return (
     <motion.section
+      id={id}
       initial={{ opacity: 0, y: 28 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-120px" }}
@@ -163,9 +166,20 @@ export default function Home() {
         <div className="noise-layer" />
       </div>
 
-      <header className="header">
+      <motion.header
+  initial={{ opacity: 0, y: -18 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.7, ease: "easeOut" }}
+  className="header"
+>
         <a href="#" className="brand" aria-label="Pineel Studios home">
-          <span className="brand-mark">P</span>
+          <motion.span
+  className="brand-mark"
+  whileHover={{ rotate: -6, scale: 1.08 }}
+  transition={{ type: "spring", stiffness: 260, damping: 18 }}
+>
+  P
+</motion.span>
           <span className="brand-name">PINEEL STUDIOS</span>
         </a>
 
@@ -179,7 +193,7 @@ export default function Home() {
         <a href="#contact" className="nav-button">
           Let&apos;s talk
         </a>
-      </header>
+      </motion.header>
 
       <section className="hero section">
         <div className="hero-grid">
@@ -411,9 +425,9 @@ export default function Home() {
             club, business or brand, contact Pineel Studios directly.
           </p>
           <div className="contact-actions">
-            <a href="mailto:hello@pineelstudios.com" className="primary-button">
+            <a href="mailto:raphael@pineelstudios.com" className="primary-button">
               <Mail size={18} />
-              hello@pineelstudios.com
+              raphael@pineelstudios.com
               <ArrowRight size={18} />
             </a>
             <a
@@ -429,10 +443,44 @@ export default function Home() {
         </div>
       </SectionReveal>
 
-      <footer className="footer">
-        <p>© {new Date().getFullYear()} Pineel Studios. All rights reserved.</p>
-        <p>Modern websites & digital presence.</p>
-      </footer>
+      <footer className="footer legal-footer">
+  <div className="footer-brand">
+    <a href="#" className="brand footer-logo" aria-label="Pineel Studios home">
+      <span className="brand-mark">P</span>
+      <span className="brand-name">PINEEL STUDIOS</span>
+    </a>
+
+    <p>
+      Modern websites, redesign concepts and digital presence for clubs, brands
+      and local businesses.
+    </p>
+  </div>
+
+  <div className="footer-column">
+    <h4>Studio</h4>
+    <a href="#work">Work</a>
+    <a href="#services">Services</a>
+    <a href="#process">Process</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <div className="footer-column">
+    <h4>Legal</h4>
+    <a href="/impressum">Impressum</a>
+    <a href="/datenschutz">Datenschutz</a>
+  </div>
+
+  <div className="footer-column">
+    <h4>Contact</h4>
+    <a href="mailto:hello@pineelstudios.com">hello@pineelstudios.com</a>
+    <a href="https://www.pineelstudios.com">pineelstudios.com</a>
+  </div>
+
+  <div className="footer-bottom">
+    <p>© {new Date().getFullYear()} Pineel Studios. All rights reserved.</p>
+    <p>Designed and developed by Pineel Studios.</p>
+  </div>
+</footer>
     </main>
   );
 }
