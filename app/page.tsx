@@ -90,7 +90,7 @@ export default function Home() {
           <a href="#contact">Contact</a>
         </nav>
 
-        <a href="mailto:hello@pineelstudio.com" className="nav-button">
+        <a href="mailto:hello@pineelstudios.com" className="nav-button">
           Let&apos;s talk
         </a>
       </header>
@@ -120,7 +120,7 @@ export default function Home() {
                 View selected work
                 <ArrowRight size={18} />
               </a>
-              <a href="mailto:hello@pineelstudio.com" className="secondary-button">
+              <a href="mailto:hello@pineelstudios.com" className="secondary-button">
                 Contact Pineel Studio
               </a>
             </div>
@@ -264,18 +264,18 @@ export default function Home() {
             club, business or brand, contact Pineel Studio directly.
           </p>
           <div className="contact-actions">
-            <a href="mailto:hello@pineelstudio.com" className="primary-button">
+            <a href="mailto:hello@pineelstudios.com" className="primary-button">
               <Mail size={18} />
-              hello@pineelstudio.com
+              hello@pineelstudios.com
               <ArrowRight size={18} />
             </a>
             <a
-              href="https://pineelstudio.com"
+              href="https://pineelstudios.com"
               target="_blank"
               rel="noreferrer"
               className="secondary-button"
             >
-              pineelstudio.com
+              pineelstudios.com
               <ExternalLink size={18} />
             </a>
           </div>

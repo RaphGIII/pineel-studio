@@ -5,12 +5,12 @@ export const metadata: Metadata = {
   title: "Pineel Studio — Modern Websites & Digital Presence",
   description:
     "Pineel Studio creates refined websites and redesign concepts for clubs, brands and local businesses.",
-  metadataBase: new URL("https://pineelstudio.com"),
+  metadataBase: new URL("https://pineelstudios.com"),
   openGraph: {
     title: "Pineel Studio",
     description:
       "Modern websites and digital presence for clubs, brands and local businesses.",
-    url: "https://pineelstudio.com",
+    url: "https://pineelstudios.com",
     siteName: "Pineel Studio",
     type: "website"
   }
